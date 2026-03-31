@@ -85,15 +85,39 @@ VALUES
     (108, 1), (108, 2), (108, 6); -- For Whom the Bell Tolls: Fiction, Classic, Adventure
 
 
-select b.title, a.first_name, a.last_name, group_concat(c.category_name) from authors a 
+select b.title, a.first_name, a.last_name, group_concat(c.category_name) 
+from authors a 
 join books b on a.author_id=b.author_id
 join book_categories bc on b.book_id=bc.book_id
 join categories c on c.category_id=bc.category_id
 group by b.book_id;
 
+select * 
+from books b 
+join authors a on a.author_id=b.author_id
+where b.publication_year<1950 and a.birth_year<1900;
+
+select b.title, a.first_name, b.publication_year from 
+books b join authors a
+on b.author_id=a.author_id
+where year(curdate())-b.publication_year>70;
+
+INSERT INTO books (book_id, title, author_id, publication_year, price)
+VALUES 
+    (109, 'Harry Potter', 5, 1813, 12.99);
+
+select a.first_name, count(*) as totalBooks, group_concat(b.book_id) 
+from authors a join books b on a.author_id=b.author_id
+group by a.author_id having count(*)>1;
 
 
 
 
+/* 
+
+INNER JOIN excludes rows with null values in the join column. 
+If you want to include with NULL values, you would use left or right join
+
+*/
 
 
