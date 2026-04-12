@@ -90,3 +90,17 @@ Demonstrates **CROSS JOIN** (Cartesian product) using a product catalog schema.
   - Filtering a Cartesian product with `WHERE` to limit results
   - Using `EXPLAIN` to inspect the query execution plan
 - **Key note:** `CROSS JOIN` produces a Cartesian product — the result set size is the product of all row counts (e.g., 4 × 5 × 4 = 80 rows), so use it carefully on large tables.
+
+### `self_join.sql`
+
+Demonstrates **Self JOIN** operations using an employee management hierarchy.
+
+- **Tables:** `employees`
+- **Concepts covered:**
+  - Basic self join to map employees to their managers
+  - `LEFT JOIN` self join to include rows without matches (e.g., CEO with no manager)
+  - Finding pairs within the same table using `e1.id < e2.id` to avoid duplicates
+  - Comparing column values across rows (employee salary vs. manager salary)
+  - Aggregating self join results with `AVG`, `COUNT`, and `ROUND` by department
+  - Using `GROUP_CONCAT` with `ORDER BY` and `SEPARATOR` for readable grouped output
+- **Key note:** Always use distinct aliases for each table instance, and use `a.id < b.id` when finding pairs to prevent duplicate and self-matching rows.
