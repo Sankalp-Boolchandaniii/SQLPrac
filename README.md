@@ -77,3 +77,16 @@ Demonstrates **FULL JOIN** emulation in MySQL using a Friends-themed schema.
   - Combining two `IS NULL` filters with `UNION` to find all unmatched records from both tables
   - PostgreSQL native `FULL JOIN` syntax (shown as reference in comments)
 - **Key note:** MySQL does not natively support `FULL JOIN` — emulate it by `UNION`-ing a `LEFT JOIN` and a `RIGHT JOIN` on the same condition.
+
+### `cross_join.sql`
+
+Demonstrates **CROSS JOIN** (Cartesian product) using a product catalog schema.
+
+- **Tables:** `products`, `colors`, `sizes`
+- **Concepts covered:**
+  - Basic `CROSS JOIN` between two tables to generate all combinations
+  - Multi-table `CROSS JOIN` (3 tables) to generate all product variations
+  - Using `CONCAT` to build descriptive labels from combined rows
+  - Filtering a Cartesian product with `WHERE` to limit results
+  - Using `EXPLAIN` to inspect the query execution plan
+- **Key note:** `CROSS JOIN` produces a Cartesian product — the result set size is the product of all row counts (e.g., 4 × 5 × 4 = 80 rows), so use it carefully on large tables.
