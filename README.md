@@ -64,3 +64,16 @@ Demonstrates **UNION** and **UNION ALL** operations using an employee-customer s
   - Finding unique values across tables using `UNION`
   - Finding common values across tables using `UNION ALL` + `GROUP BY` + `HAVING`
 - **Key note:** `UNION` requires all queries to have the same number of columns with compatible data types; column names are taken from the first `SELECT`.
+
+### `full_join.sql`
+
+Demonstrates **FULL JOIN** emulation in MySQL using a Friends-themed schema.
+
+- **Tables:** `characters`, `apartments`
+- **Concepts covered:**
+  - Emulating `FULL JOIN` in MySQL using `UNION` of `LEFT JOIN` and `RIGHT JOIN`
+  - Comparison of `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, and `FULL JOIN` results
+  - Filtering unmatched rows from either side using `WHERE ... IS NULL`
+  - Combining two `IS NULL` filters with `UNION` to find all unmatched records from both tables
+  - PostgreSQL native `FULL JOIN` syntax (shown as reference in comments)
+- **Key note:** MySQL does not natively support `FULL JOIN` — emulate it by `UNION`-ing a `LEFT JOIN` and a `RIGHT JOIN` on the same condition.
