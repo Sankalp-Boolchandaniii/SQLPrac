@@ -35,3 +35,18 @@ Demonstrates **LEFT JOIN** operations using a customer-orders-shipping schema.
   - `HAVING` with `IS NULL` and `DATE_SUB()` for date-based filtering
   - Foreign key constraints between tables
 - **Key note:** Filtering in the `ON` clause vs. a subquery matters for performance — pre-filtering with a subquery is more optimized than filtering after the join.
+
+### `right_join.sql`
+
+Demonstrates **RIGHT JOIN** operations using a housing society schema.
+
+- **Tables:** `apartments`, `residents`, `maintenance_requests`
+- **Concepts covered:**
+  - Basic `RIGHT JOIN` to include all rows from the right table (with `NULL` for non-matching left rows)
+  - Finding unoccupied apartments using `RIGHT JOIN` + `WHERE ... IS NULL`
+  - `COUNT` and `GROUP_CONCAT` with `RIGHT JOIN` to aggregate residents per apartment
+  - `ENUM` column type for status fields
+  - Foreign key constraints between tables
+- **Key note:** `RIGHT JOIN` is the mirror of `LEFT JOIN` — it ensures all rows from the right table appear, even if there's no matching row on the left.
+
+
