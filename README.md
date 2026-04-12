@@ -49,4 +49,18 @@ Demonstrates **RIGHT JOIN** operations using a housing society schema.
   - Foreign key constraints between tables
 - **Key note:** `RIGHT JOIN` is the mirror of `LEFT JOIN` — it ensures all rows from the right table appear, even if there's no matching row on the left.
 
+### `union_unionall.sql`
 
+Demonstrates **UNION** and **UNION ALL** operations using an employee-customer schema.
+
+- **Tables:** `headquarters_employees`, `branch_employees`, `customers`
+- **Concepts covered:**
+  - `UNION` to combine result sets and remove duplicates
+  - `UNION ALL` to combine result sets while keeping duplicates
+  - Adding a descriptor/type column (e.g., `'employee'`, `'customer'`) to distinguish sources
+  - `ORDER BY` applied after a `UNION` to sort the combined result
+  - Filtering with `WHERE` before `UNION`
+  - Handling different table structures by padding with `NULL` columns
+  - Finding unique values across tables using `UNION`
+  - Finding common values across tables using `UNION ALL` + `GROUP BY` + `HAVING`
+- **Key note:** `UNION` requires all queries to have the same number of columns with compatible data types; column names are taken from the first `SELECT`.
